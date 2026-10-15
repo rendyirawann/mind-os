@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Mind OS theme — recolours Metronic with the Mind OS palette.
+   Teal  #14848c  healing / calm (primary)
+   Ocean #1d4e5f  depth of the subconscious (secondary / dark surfaces)
+   Coral #f08a3c  transformation (accent, mapped onto "warning")
+   Loaded after style.bundle.css.
+   ========================================================================== */
+
+:root,
+[data-bs-theme="light"] {
+    --mos-teal: #14848c;
+    --mos-teal-dark: #0f6b72;
+    --mos-ocean: #1d4e5f;
+    --mos-coral: #f08a3c;
+    --mos-mint: #e6f5f4;
+    --mos-sky: #eaf6fb;
+
+    --bs-primary: #14848c;
+    --bs-primary-rgb: 20, 132, 140;
+    --bs-primary-active: #0f6b72;
+    --bs-primary-light: #e6f5f4;
+    --bs-primary-inverse: #ffffff;
+    --bs-primary-clarity: rgba(20, 132, 140, .2);
+    --bs-text-primary: #14848c;
+    --bs-link-color: #14848c;
+    --bs-link-color-rgb: 20, 132, 140;
+    --bs-link-hover-color: #0f6b72;
+    --bs-link-hover-color-rgb: 15, 107, 114;
+
+    --bs-info: #2a9fd6;
+    --bs-info-rgb: 42, 159, 214;
+    --bs-info-active: #1f86b8;
+    --bs-info-light: #eaf6fb;
+    --bs-text-info: #2a9fd6;
+
+    --bs-warning: #f08a3c;
+    --bs-warning-rgb: 240, 138, 60;
+    --bs-warning-active: #d9742a;
+    --bs-warning-light: #fff2e8;
+    --bs-warning-inverse: #ffffff;
+    --bs-text-warning: #e07a2c;
+
+    --bs-success: #2bb673;
+    --bs-success-rgb: 43, 182, 115;
+    --bs-success-active: #23985f;
+    --bs-success-light: #e8f8f0;
+    --bs-text-success: #23985f;
+
+    --bs-dark: #1d4e5f;
+    --bs-dark-rgb: 29, 78, 95;
+    --bs-dark-active: #163e4c;
+    --bs-dark-light: #e3ecef;
+    --bs-text-dark: #1d4e5f;
+
+    --bs-body-bg: #ffffff;
+    --bs-app-bg-color: #f4f9f9;
+}
+
+[data-bs-theme="dark"] {
+    --mos-teal: #2fb5bd;
+    --mos-mint: rgba(47, 181, 189, .12);
+    --mos-sky: rgba(42, 159, 214, .12);
+
+    --bs-primary: #2fb5bd;
+    --bs-primary-rgb: 47, 181, 189;
+    --bs-primary-active: #25979e;
+    --bs-primary-light: rgba(47, 181, 189, .14);
+    --bs-primary-inverse: #071a1f;
+    --bs-text-primary: #4fd0d7;
+    --bs-link-color: #4fd0d7;
+    --bs-link-hover-color: #7fe1e6;
+
+    --bs-info: #45b5ea;
+    --bs-info-light: rgba(69, 181, 234, .14);
+    --bs-text-info: #6cc6f0;
+
+    --bs-warning: #f39a55;
+    --bs-warning-light: rgba(243, 154, 85, .14);
+    --bs-text-warning: #f6ae75;
+
+    --bs-success: #3fcf8a;
+    --bs-success-light: rgba(63, 207, 138, .14);
+
+    --bs-body-bg: #0d1b20;
+    --bs-app-bg-color: #0a161a;
+}
+
+body {
+    background-color: var(--bs-app-bg-color);
+}
+
+/* Buttons pick up the variables in Metronic but some states are hard-coded. */
+.btn.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary-active);
+    --bs-btn-hover-border-color: var(--bs-primary-active);
+    --bs-btn-active-bg: var(--bs-primary-active);
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.btn.btn-primary:hover:not(.btn-active),
+.btn.btn-primary:focus:not(.btn-active),
+.btn.btn-primary:active:not(.btn-active) {
+    background-color: var(--bs-primary-active) !important;
+    border-color: var(--bs-primary-active) !important;
+}
+
+.btn.btn-light-primary {
+    background-color: var(--bs-primary-light);
+    color: var(--bs-primary);
+}
+
+.btn.btn-light-primary:hover:not(.btn-active) {
+    background-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(var(--bs-primary-rgb), .55);
+    box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .12);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Mind OS components (member area)
+   -------------------------------------------------------------------------- */
+
+.mos-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: clamp(20px, 3vw, 36px);
+    color: #fff;
+    background:
+        radial-gradient(120% 140% at 100% 0%, rgba(240, 138, 60, .35) 0%, transparent 45%),
+        linear-gradient(135deg, #14848c 0%, #1d4e5f 100%);
+}
+
+.mos-hero h1,
+.mos-hero h2,
+.mos-hero h3 {
+    color: #fff;
+}
+
+.mos-hero p {
+    color: rgba(255, 255, 255, .82);
+}
+
+.mos-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -60px -80px auto;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 36px solid rgba(255, 255, 255, .07);
+    pointer-events: none;
+}
+
+.mos-card {
+    border: 1px solid var(--bs-gray-200);
+    border-radius: 16px;
+    background: var(--bs-body-bg);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+a.mos-card:hover,
+.mos-card.is-hoverable:hover {
+    transform: translateY(-3px);
+    border-color: rgba(var(--bs-primary-rgb), .35);
+    box-shadow: 0 14px 30px -18px rgba(20, 132, 140, .55);
+}
+
+.mos-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 700;
+    background: var(--bs-primary-light);
+    color: var(--bs-primary);
+}
+
+.mos-r {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 32px;
+    padding-inline: 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .8rem;
+    color: #fff;
+}
+
+.mos-r--web { background: #14848c; }
+.mos-r--online { background: #1d4e5f; }
+.mos-r--offline { background: #f08a3c; }
+
+.mos-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.mos-flow__arrow {
+    color: var(--bs-gray-400);
+    font-weight: 700;
+}
+
+.mos-progress {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--bs-gray-200);
+    overflow: hidden;
+}
+
+.mos-progress > span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #14848c, #2a9fd6);
+}
+
+.mos-days {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    gap: 8px;
+}
+
+.mos-day {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: .85rem;
+    border: 1px solid var(--bs-gray-300);
+    color: var(--bs-gray-600);
+    background: var(--bs-body-bg);
+}
+
+.mos-day.is-done {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.mos-day.is-today {
+    outline: 3px solid rgba(240, 138, 60, .55);
+    outline-offset: 1px;
+}
+
+.mos-scale {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.mos-scale input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mos-scale label {
+    display: grid;
+    place-items: center;
+    gap: 2px;
+    padding: 8px 4px;
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: .72rem;
+    text-align: center;
+    color: var(--bs-gray-700);
+    transition: background .15s, border-color .15s, color .15s;
+}
+
+.mos-scale label strong {
+    font-size: 1rem;
+}
+
+.mos-scale input:checked + label {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.mos-scale input:focus-visible + label {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+
+.mos-prose {
+    white-space: pre-line;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    color: var(--bs-gray-800);
+}
+
+@media (max-width: 575.98px) {
+    .mos-scale label span {
+        display: none;
+    }
+}
